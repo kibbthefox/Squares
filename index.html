@@ -1,36 +1,174 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Fun Website :3</title>
-    
+    <title>Squares</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Comic+Relief:wght@400;700&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" href="alticon.png">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="script.js" defer></script>
+    <script src="script2.js" defer></script>
     <style>
     .bounce {
       position: absolute;
       will-change: left, top;
       cursor: pointer;
     }
-
+    .bouncenostop {
+      position: absolute;
+      will-change: left, top;
+      cursor: default;
+    }
     .bounce:hover {
       transform: scale(1.05);
+    }
+    .catwhimsy {
+      visibility: hidden;
+    }
+    .rainbowbg {
+      visibility: hidden;
+    }
+    .secretsquare {
+      visibility: hidden;
+    }
+    .haitext {
+      opacity: 0;
     }
     body
     {
       font-family: 'Comic Relief', cursive;    
+      background-image: none;
     }
   </style>
 </head>
-  <body>
+  <body id="body">
+
+
     <div class="bounce">
-      <p>Click The Cubes</p>
+      <button onclick="catwhimsyappear()"><img src="Assets/6.png"></button>
     </div>
+    <audio id="meow" src="Assets/meow.mp3"></audio>
+    <script>
+      function catwhimsyappear(){
+        if (document.getElementById('catwhimsy').style.visibility === 'visible') {
+          
+        } else{
+          document.getElementById('catwhimsy').style.visibility = 'visible';
+          document.getElementById('meow').play();
+        }
+      }
+    </script>
+
+
     <div class="bounce">
-      <img src="">
+      <button onclick=""><img src="Assets/5.png"></button>
     </div>
+
+
+    <div class="bounce">
+      <button onclick="hai()"><img src="Assets/4.png"></button>
+    </div>
+    <audio id="hai" src="Assets/hi.mp3"></audio>
+    <script>
+      function hai(){
+        document.getElementById('hai').play();
+        document.getElementById('haitext').animate([       //This animate portion is ai cuz i was so clueless
+          { opacity: 1 }, 
+          { opacity: 0 }  
+          ], {
+            duration: 1500,     
+            fill: 'forwards'   
+          });
+      }
+    </script>
+
+    <div class="bounce">
+      <button onclick=""><img src="Assets/3.png"></button>
+    </div>
+
+
+    <div class="bounce">
+      <button onclick="monochrome()"><img src="Assets/2.png"></button>
+    </div>
+    <script>
+
+      function monochrome(){
+        if (document.getElementById('body').style.filter === 'grayscale(100%)') {
+          document.getElementById('body').style.filter = 'grayscale(0%)';
+          document.getElementById('secretsquare').style.visibility = 'hidden';
+        } else{
+          document.getElementById('body').style.filter = 'grayscale(100%)';
+          if (document.getElementById('rainbowbg').style.visibility === 'visible') {
+            document.getElementById('secretsquare').style.visibility = 'visible';
+          } else{
+            document.getElementById('secretsquare').style.visibility = 'hidden';
+          }
+        }
+      }
+    </script>
+
+    <div class="bounce">
+      <button id="orange" onclick="rotateorange()"><img src="Assets/1.png"></button>
+    </div>
+    <script>
+      var currentrotate = 0
+
+      function rotateorange(){
+        currentrotate += .94
+        document.getElementById('orange').style.rotate = ''+currentrotate+'deg';
+      }
+    </script>
+
+
+    <div class="bounce">
+      <button onclick="bgrainbow()"><img src="Assets/0.png"></button>
+    </div>
+    <img id="rainbowbg" src="Assets/rainbow.gif" class="rainbowbg flex h-screen items-center justify-center" width="3000" height="3000">
+    <script>
+      function bgrainbow(){
+        if (document.getElementById('rainbowbg').style.visibility === 'visible') {
+          document.getElementById('rainbowbg').style.visibility = 'hidden';
+          document.getElementById('secretsquare').style.visibility = 'hidden';
+        } else{
+          document.getElementById('rainbowbg').style.visibility = 'visible';
+          if (document.getElementById('body').style.filter === 'grayscale(100%)') {
+            document.getElementById('secretsquare').style.visibility = 'visible';
+          } else{
+            document.getElementById('secretsquare').style.visibility = 'hidden';
+          }
+        }
+      }
+    </script>
+
+
+    <div class="bounce">
+      <button id="secretsquare" class="secretsquare" onclick="rainbowsquare()"><img src="Assets/rainbow.gif" width="128px"></button>
+    </div>
+    <script>
+      function rainbowsquare(){
+      }
+    </script>
+
+
+
+    <p id="haitext" class="haitext text-3xl bounce">hai</p>
+
+
+
+    <div id="catwhimsy" class="catwhimsy bounce">
+      <button onclick="catwhimsygone()"><img src="Assets/cat.jpeg"></button>
+    </div>
+    <script>
+      function catwhimsygone(){
+        document.getElementById('catwhimsy').style.visibility = 'hidden';
+      }
+    </script>
+
+
+    <p class="text-3xl font-bold bouncenostop" >Click The Cubes!</p>
+    
   </body>
 </html>
