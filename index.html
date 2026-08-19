@@ -66,11 +66,17 @@
     }
     .bluescreen {
       visibility: hidden;
-      cursor: default;
+      cursor: none;
     }
     .blackscreen {
       visibility: hidden;
-      cursor: default;
+      cursor: none;
+    }
+    .link {
+      visibility: hidden;
+    }
+    .linktext {
+      visibility: hidden;
     }
     body
     {
@@ -86,7 +92,7 @@
     <img id="rainbowbg" src="Assets/rainbow.gif" class="rainbowbg flex items-center h-screen w-full" width="3000" height="3000">
     <img id="confetti" src="Assets/confetti.gif" class="confetti fixed inset-0 flex items-center h-screen w-full" width="3000 flex items-center h-screen w-full" width="3000">
     
-        <div class="bounce">
+    <div class="bounce">
       <button onclick="pointclick()"><img src="Assets/8.png"></button>
     </div>
     <audio id="click" src="Assets/click.mp3"></audio>
@@ -96,6 +102,34 @@
         document.getElementById('click').cloneNode(true).play();
         points += 1
         document.getElementById('pointtext').textContent = 'Points: ' + points;
+      }
+    </script>
+
+
+    <div class="bounce">
+      <button onclick="githubappear()"><img src="Assets/11.png"></button>
+    </div>
+    <button id="link" class="link bounce" onclick="linkclicked()"><img src="Assets/link.png" width="128"></button>
+    <button id="linktext" onclick="textclicked()" style="white-space: nowrap;" class="linktext text-3xl font-bold bounce" >Check out my Github pwetty pwease</button>
+    <script>
+      function githubappear(){
+        document.getElementById('link').style.visibility = 'visible';
+        document.getElementById('linktext').style.visibility = 'visible';
+      }
+    </script>
+    <script>
+      function textclicked(){
+        document.getElementById('link').style.visibility = 'hidden';
+        document.getElementById('linktext').style.visibility = 'hidden';
+      }
+    </script>
+    <script>
+      function linkclicked(){
+        document.getElementById('link').style.visibility = 'hidden';
+        document.getElementById('linktext').style.visibility = 'hidden';
+        points += 5
+        document.getElementById('pointtext').textContent = 'Points: ' + points;
+        window.open('https://github.com/kibbthefox', '_blank');
       }
     </script>
 
@@ -194,7 +228,7 @@
       async function Bluescreen(){
         document.getElementById('blackscreen').style.visibility = 'visible';
         document.getElementById('body').style.filter = 'grayscale(0%)';
-        await new Promise(resolve => setTimeout(resolve, 1500)); //This single line was written by ai
+        await new Promise(resolve => setTimeout(resolve, 3000)); //This single line was written by ai
         document.getElementById('blackscreen').style.visibility = 'hidden';
         document.getElementById('bluescreen').style.visibility = 'visible';
         await new Promise(resolve => setTimeout(resolve, 5000)); //This single line was written by ai
@@ -254,7 +288,7 @@
     <script>
       var currentrotate = 0
       function rotateorange(){
-        currentrotate += .94
+        currentrotate += 1.37
         document.getElementById('orange').style.rotate = ''+currentrotate+'deg';
       }
     </script>
