@@ -13,6 +13,10 @@
     <script src="script.js" defer></script>
     <script src="script2.js" defer></script>
     <style>
+    img {
+    user-select: none;
+    -webkit-user-drag: none;
+    }
     .bounce {
       position: absolute;
       will-change: left, top;
@@ -58,6 +62,9 @@
     {
       font-family: 'Comic Relief', cursive;    
       background-image: none;
+      -webkit-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
     }
   </style>
 </head>
