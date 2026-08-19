@@ -4,7 +4,7 @@ This website, Squares, was coded in HTML/CSS/Javascript and was made for the [Ha
 
 The challenge was to make a whimsical website with flying/bouncing elements, so I created Squares! Making this website also helped me learn a ton more about javascript which was fun :3
 
-The website is as simple as clicking squares (and possibly the occasional circle) and watching stuff happen. You can play [here](https://kibbthefox.github.io/Squares/)!
+The website is as simple as clicking squares and watching stuff happen. You can play [here](https://kibbthefox.github.io/Squares/)!
 
 ## AI Disclosure
 

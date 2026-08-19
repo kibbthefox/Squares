@@ -175,15 +175,17 @@
     
 
     <div class="bounce grid place-items-center">
-      <button id="gsquare" class="gsquare col-start-1 row-start-1" onclick="CircleMode()"><img src="Assets/3.png"></button>
+      <button id="gsquare" class="gsquare col-start-1 row-start-1" onclick="AlienMode()"><img src="Assets/3.png"></button>
       <button id="gcircle" class="gcircle col-start-1 row-start-1" onclick="SquareMode()"><img src="Assets/3alt.png"></button>
     </div>
+    <audio id="alien" src="Assets/bogosbinted.mp3"></audio>
     <script>
-      function CircleMode(){
+      function AlienMode(){
         document.getElementById('gsquare').style.visibility = 'hidden';
         document.getElementById('gcircle').style.visibility = 'visible';
         document.getElementById('sq').style.visibility = 'hidden';
         document.getElementById('cr').style.visibility = 'visible';
+        document.getElementById('alien').cloneNode(true).play();
       }
     </script>
     <script>
@@ -331,7 +333,7 @@
 
     <p id="sq" style="white-space: nowrap;" class="sq text-3xl font-bold bouncenostop" >Click The Cubes :3</p>
     <p id="pointtext" style="white-space: nowrap;" class="sq text-3xl font-bold bouncenostop" >Points: 0</p>
-    <p id="cr" style="white-space: nowrap;" class="cr text-3xl font-bold bouncenostop" >Click The Cubes (or circle) :3</p>
+    <p id="cr" style="white-space: nowrap;" class="cr text-3xl font-bold bouncenostop" >Click The Cubes (or Alien) :3</p>
     <p id="guyt" style="white-space: nowrap;" class="guy text-3xl bouncenostop" >congrats u get a lil guy now :3</p>
   </body>
 </html>
