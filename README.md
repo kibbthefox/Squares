@@ -12,4 +12,10 @@ I always tried to actually make the code myself. I tried to only go to AI when I
 
 ## Screenshots
 
-To be added when project is complete.
+![ss1](Assets/ss1)
+
+![ss2](Assets/ss2)
+
+![ss1](Assets/ss3)
+
+![ss2](Assets/ss4)
