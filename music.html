@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Squares</title>
+    <link rel="icon" type="image/png" href="Assets/0.png">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Relief:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="script.js" defer></script>
+    <script src="script2.js" defer></script>
+    <style>
+    img {
+      user-select: none;
+      -webkit-user-drag: none;
+    }
+    .bounce {
+      position: absolute;
+      will-change: left, top;
+      cursor: pointer;
+    }
+    .bouncenostop {
+      position: absolute;
+      will-change: left, top;
+      cursor: default;
+    }
+    .bounce:hover {
+      transform: scale(1.05);
+    }
+    body {
+      font-family: 'Comic Relief', cursive;    
+      background-image: none;
+      -webkit-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+    </style>
+  </head>
+  <body>
+
+    <audio id="c" src="Assets/music/c.mp3"></audio>
+    <audio id="d" src="Assets/music/d.mp3"></audio>
+    <audio id="e" src="Assets/music/e.mp3"></audio>
+    <audio id="f" src="Assets/music/f.mp3"></audio>
+    <audio id="g" src="Assets/music/g.mp3"></audio>
+    <audio id="a" src="Assets/music/a.mp3"></audio>
+    <audio id="b" src="Assets/music/b.mp3"></audio>
+    <audio id="c2" src="Assets/music/c2.mp3"></audio>
+    <audio id="snare" src="Assets/music/snare.mp3"></audio>
+    <audio id="kick" src="Assets/music/kick.mp3"></audio>
+    <audio id="crash" src="Assets/music/crash.mp3"></audio>
+
+
+    <button onclick="document.getElementById('c').currentTime = 0; document.getElementById('c').play();" class="bounce"><img src="Assets/music/0.png" width="128px"></button>
+    <button onclick="document.getElementById('d').currentTime = 0; document.getElementById('d').play();" class="bounce"><img src="Assets/music/1.png" width="128px"></button>
+    <button onclick="document.getElementById('e').currentTime = 0; document.getElementById('e').play();" class="bounce"><img src="Assets/music/2.png" width="128px"></button>
+    <button onclick="document.getElementById('f').currentTime = 0; document.getElementById('f').play();" class="bounce"><img src="Assets/music/3.png" width="128px"></button>
+    <button onclick="document.getElementById('g').currentTime = 0; document.getElementById('g').play();" class="bounce"><img src="Assets/music/4.png" width="128px"></button>
+    <button onclick="document.getElementById('a').currentTime = 0; document.getElementById('a').play();" class="bounce"><img src="Assets/music/5.png" width="128px"></button>
+    <button onclick="document.getElementById('b').currentTime = 0; document.getElementById('b').play();" class="bounce"><img src="Assets/music/6.png" width="128px"></button>
+    <button onclick="document.getElementById('c2').currentTime = 0; document.getElementById('c2').play();" class="bounce"><img src="Assets/music/7.png" width="128px"></button>
+    <button onclick="document.getElementById('crash').currentTime = 0; document.getElementById('crash').play();" class="bounce"><img src="Assets/music/crash.png" width="128px"></button>
+    <button onclick="document.getElementById('snare').currentTime = 0; document.getElementById('snare').play();" class="bounce"><img src="Assets/music/snare.png" width="128px"></button>
+    <button onclick="document.getElementById('kick').currentTime = 0; document.getElementById('kick').play();" class="bounce"><img src="Assets/music/kick.png" width="128px"></button>
+
+
+    <p style="white-space: nowrap;" class="text-3xl font-bold bouncenostop" >Click The Cubes :3</p>
+    <button onclick="window.location.href='index.html';" style="white-space: nowrap;" class="text-3xl font-bold bounce" >Click This Text to Go Back</button>
+
+
+
+  </body>
+</html>

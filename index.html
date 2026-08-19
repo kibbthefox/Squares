@@ -8,14 +8,13 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Comic+Relief:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/png" href="alticon.png">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="script.js" defer></script>
     <script src="script2.js" defer></script>
     <style>
     img {
-    user-select: none;
-    -webkit-user-drag: none;
+      user-select: none;
+      -webkit-user-drag: none;
     }
     .bounce {
       position: absolute;
@@ -68,6 +67,10 @@
       visibility: hidden;
       cursor: none;
     }
+    .bluescreenbg {
+      visibility: hidden;
+      cursor: none;
+    }
     .blackscreen {
       visibility: hidden;
       cursor: none;
@@ -78,8 +81,13 @@
     .linktext {
       visibility: hidden;
     }
-    body
-    {
+    .pink {
+      visibility: hidden;
+    }
+    .musictext {
+      visibility: hidden;
+    }
+    body {
       font-family: 'Comic Relief', cursive;    
       background-image: none;
       -webkit-user-select: none;
@@ -91,7 +99,8 @@
   <body id="body">
     <img id="rainbowbg" src="Assets/rainbow.gif" class="rainbowbg flex items-center h-screen w-full" width="3000" height="3000">
     <img id="confetti" src="Assets/confetti.gif" class="confetti fixed inset-0 flex items-center h-screen w-full" width="3000 flex items-center h-screen w-full" width="3000">
-    
+    <audio id="yay" src="Assets/crowd.mp3"></audio>
+
     <div class="bounce">
       <button onclick="pointclick()"><img src="Assets/8.png"></button>
     </div>
@@ -102,6 +111,10 @@
         document.getElementById('click').cloneNode(true).play();
         points += 1
         document.getElementById('pointtext').textContent = 'Points: ' + points;
+        if (points > 99) {
+          document.getElementById('pink').style.visibility = 'visible';
+          document.getElementById('musictext').style.visibility = 'visible';
+        }
       }
     </script>
 
@@ -110,7 +123,7 @@
       <button onclick="githubappear()"><img src="Assets/11.png"></button>
     </div>
     <button id="link" class="link bounce" onclick="linkclicked()"><img src="Assets/link.png" width="128"></button>
-    <button id="linktext" onclick="textclicked()" style="white-space: nowrap;" class="linktext text-3xl font-bold bounce" >Check out my Github pwetty pwease</button>
+    <button id="linktext" onclick="textclicked()" style="white-space: nowrap;" class="linktext text-3xl bounce" >Check out my Github pwetty pwease</button>
     <script>
       function githubappear(){
         document.getElementById('link').style.visibility = 'visible';
@@ -130,8 +143,17 @@
         points += 5
         document.getElementById('pointtext').textContent = 'Points: ' + points;
         window.open('https://github.com/kibbthefox', '_blank');
+        if (points > 99) {
+          document.getElementById('pink').style.visibility = 'visible';
+          document.getElementById('musictext').style.visibility = 'visible';
+        }
       }
     </script>
+
+
+    <div class="bounce">
+      <a id="pink" class="pink" href="music.html"><img src="Assets/12.png"></a>
+    </div>
 
 
     <div class="bounce">
@@ -219,11 +241,13 @@
         }
     </script>
     
+
     <div class="bounce">
       <button id="seafoam" onclick="Bluescreen()"><img src="Assets/10.png"></button>
     </div>
-    <button class="bluescreen fixed inset-0 z-50 flex items-center h-screen w-full" id="bluescreen" onclick=""><img src="Assets/bluescreen.png"></button>
-    <button class="blackscreen fixed inset-0 z-50 flex items-center h-screen w-full" id="blackscreen" onclick=""><img src="Assets/black.png" width="3000" height="3000"></button>
+    <img src="Assets/bluescreenbg.png" class="bluescreenbg fixed inset-0 z-50 flex items-center h-screen w-full" width="3000" id="bluescreenbg">
+    <button class="bluescreen fullscreen fixed inset-0 z-50 flex items-center h-screen w-full" id="bluescreen" onclick=""><img src="Assets/bluescreen.png"></button>
+    <img src="Assets/black.png" class="blackscreen fixed inset-0 z-50 flex items-center h-screen w-full" width="3000" id="blackscreen">
     <script> 
       async function Bluescreen(){
         document.getElementById('blackscreen').style.visibility = 'visible';
@@ -231,8 +255,10 @@
         await new Promise(resolve => setTimeout(resolve, 3000)); //This single line was written by ai
         document.getElementById('blackscreen').style.visibility = 'hidden';
         document.getElementById('bluescreen').style.visibility = 'visible';
+        document.getElementById('bluescreenbg').style.visibility = 'visible';
         await new Promise(resolve => setTimeout(resolve, 5000)); //This single line was written by ai
         document.getElementById('bluescreen').style.visibility = 'hidden';
+        document.getElementById('bluescreenbg').style.visibility = 'hidden';
       }
     </script>
     
@@ -355,6 +381,10 @@
         document.getElementById('mwehehe').play();
         points += 6
         document.getElementById('pointtext').textContent = 'Points: ' + points;
+        if (points > 99) {
+          document.getElementById('pink').style.visibility = 'visible';
+          document.getElementById('musictext').style.visibility = 'visible';
+        }
       }
     </script>
     
@@ -382,6 +412,10 @@
           document.getElementById('pointtext').textContent = 'Points: ' + points;
           cwg = 0
         }
+        if (points > 99) {
+          document.getElementById('pink').style.visibility = 'visible';
+          document.getElementById('musictext').style.visibility = 'visible';
+        }
       }
     </script>
     <script>
@@ -398,6 +432,10 @@
           document.getElementById('pointtext').textContent = 'Points: ' + points;
           cwg2 = 0
         }
+        if (points > 99) {
+          document.getElementById('pink').style.visibility = 'visible';
+          document.getElementById('musictext').style.visibility = 'visible';
+        }
       }
     </script>
     <script>
@@ -413,6 +451,10 @@
           document.getElementById('pointtext').textContent = 'Points: ' + points;
           cwg3 = 0
         }
+        if (points > 99) {
+          document.getElementById('pink').style.visibility = 'visible';
+          document.getElementById('musictext').style.visibility = 'visible';
+        }
       }
     </script>
 
@@ -420,5 +462,6 @@
     <p id="pointtext" style="white-space: nowrap;" class="sq text-3xl font-bold bouncenostop" >Points: 0</p>
     <p id="cr" style="white-space: nowrap;" class="cr text-3xl font-bold bouncenostop" >Click The Cubes (or Alien) :3</p>
     <p id="guyt" style="white-space: nowrap;" class="guy text-3xl bouncenostop" >congrats u get a lil guy now :3</p>
+    <p id="musictext" style="white-space: nowrap;" class="musictext guy text-3xl bouncenostop" >congrats u get a pink square</p>
   </body>
 </html>

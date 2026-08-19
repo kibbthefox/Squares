@@ -1,6 +1,6 @@
 # Squares
 ## About
-This website, Squares, was coded with HTML/CSS/JavaScript in VSCode and was made for the [Hackclub](https://hackclub.com/) YSWS [urspace](https://urspace.hackclub.com/).
+This website, Squares, was coded with HTML/JavaScript in VSCode and was made for the [Hackclub](https://hackclub.com/) YSWS [urspace](https://urspace.hackclub.com/).
 
 The challenge was to make a whimsical website with flying/bouncing elements, so I created Squares! Making this website also helped me learn a ton more about javascript which was fun :3
 
