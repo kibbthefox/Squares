@@ -8,7 +8,7 @@ The website is as simple as clicking squares and watching stuff happen. You can 
 
 ## AI Disclosure
 
-I always tried to actually make the code myself. I tried to only go to AI when I needed something explained. AI code was used once because I spent 20 minutes trying to figure out fading out opacity </3
+I always tried to actually make the code myself. I tried to only go to AI when I needed something explained. AI code was used twice, first because I spent 20 minutes trying to figure out fading out opacity, and second cuz I couldnt find anything about timers online </3
 
 ## Screenshots
 

@@ -2,6 +2,7 @@
 <html>
   <head>
     <title>Squares</title>
+    <link rel="icon" type="image/gif" href="Assets/rainbow.gif">
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -34,8 +35,24 @@
     .secretsquare {
       visibility: hidden;
     }
+    .gcircle {
+      visibility: hidden;
+    }
+    .cr {
+      visibility: hidden;
+    }
+    .guy {
+      visibility: hidden;
+      cursor: pointer;
+    }
     .haitext {
       opacity: 0;
+    }
+    .flash {
+      visibility: hidden;
+    }
+    .explode {
+      visibility: hidden;
     }
     body
     {
@@ -64,7 +81,35 @@
 
 
     <div class="bounce">
-      <button onclick=""><img src="Assets/5.png"></button>
+      <button onclick="SelfDestruct()"><img src="Assets/5.png"></button>
+    </div>
+    <audio id="alarm" src="Assets/alarm.mp3"></audio>
+    <audio id="explodeaudio" src="Assets/explosion.mp3"></audio>
+    <script>
+      async function SelfDestruct(){
+        document.getElementById('alarm').play();
+        document.getElementById('flash').style.visibility = 'visible';
+        await new Promise(resolve => setTimeout(resolve, 1500)); //This single line was written by ai
+        document.getElementById('flash').style.visibility = 'hidden';
+        await new Promise(resolve => setTimeout(resolve, 1500)); //This single line was written by ai
+        document.getElementById('flash').style.visibility = 'visible';
+        document.getElementById('alarm').play();
+        await new Promise(resolve => setTimeout(resolve, 1500)); //This single line was written by ai
+        document.getElementById('flash').style.visibility = 'hidden';
+        await new Promise(resolve => setTimeout(resolve, 1500)); //This single line was written by ai
+        document.getElementById('flash').style.visibility = 'visible';
+        document.getElementById('alarm').play();
+        await new Promise(resolve => setTimeout(resolve, 1500)); //This single line was written by ai
+        document.getElementById('flash').style.visibility = 'hidden';
+        await new Promise(resolve => setTimeout(resolve, 1300)); //This single line was written by ai
+        document.getElementById('explode').style.visibility = 'visible'; 
+        document.getElementById('explodeaudio').play();
+        await new Promise(resolve => setTimeout(resolve, 750)); //This single line was written by ai
+        window.location.reload();
+      }
+    </script>
+    <div id="explode" class="explode fixed inset-0 z-50 flex items-center h-screen w-full">
+      <img src="Assets/explosion.gif" class="block mx-auto">
     </div>
 
 
@@ -85,9 +130,28 @@
       }
     </script>
 
-    <div class="bounce">
-      <button onclick=""><img src="Assets/3.png"></button>
+
+    <div class="bounce grid place-items-center">
+      <button id="gsquare" class="gsquare col-start-1 row-start-1" onclick="CircleMode()"><img src="Assets/3.png"></button>
+      <button id="gcircle" class="gcircle col-start-1 row-start-1" onclick="SquareMode()"><img src="Assets/3alt.png"></button>
     </div>
+    <script>
+      function CircleMode(){
+        document.getElementById('gsquare').style.visibility = 'hidden';
+        document.getElementById('gcircle').style.visibility = 'visible';
+        document.getElementById('sq').style.visibility = 'hidden';
+        document.getElementById('cr').style.visibility = 'visible';
+      }
+    </script>
+    <script>
+      function SquareMode(){
+        document.getElementById('gcircle').style.visibility = 'hidden';
+        document.getElementById('gsquare').style.visibility = 'visible';
+        document.getElementById('sq').style.visibility = 'visible';
+        document.getElementById('cr').style.visibility = 'hidden';
+      }
+    </script>
+
 
 
     <div class="bounce">
@@ -109,6 +173,8 @@
         }
       }
     </script>
+    <img id="rainbowbg" src="Assets/rainbow.gif" class="rainbowbg flex items-center h-screen w-full" width="3000" height="3000">
+   
 
     <div class="bounce">
       <button id="orange" onclick="rotateorange()"><img src="Assets/1.png"></button>
@@ -121,12 +187,11 @@
         document.getElementById('orange').style.rotate = ''+currentrotate+'deg';
       }
     </script>
-
+    <img id="flash" src="Assets/flash.png" class="flash fixed inset-0 z-50 flex items-center h-screen w-full" width="3000" height="3000"> 
 
     <div class="bounce">
       <button onclick="bgrainbow()"><img src="Assets/0.png"></button>
     </div>
-    <img id="rainbowbg" src="Assets/rainbow.gif" class="rainbowbg flex h-screen items-center justify-center" width="3000" height="3000">
     <script>
       function bgrainbow(){
         if (document.getElementById('rainbowbg').style.visibility === 'visible') {
@@ -142,21 +207,30 @@
         }
       }
     </script>
+    
 
-
-    <div class="bounce">
+    <div class="bouncenostop">
       <button id="secretsquare" class="secretsquare" onclick="rainbowsquare()"><img src="Assets/rainbow.gif" width="128px"></button>
     </div>
     <script>
       function rainbowsquare(){
+        document.getElementById('guy').style.visibility = 'visible';
+        document.getElementById('guyt').style.visibility = 'visible';
       }
     </script>
+    
+    
+    <p id="haitext" class="haitext text-3xl bouncenostop">hai</p>
 
 
-
-    <p id="haitext" class="haitext text-3xl bounce">hai</p>
-
-
+    <button onclick="mwehehe()"><img id="guy" class="guy bouncenostop" src="Assets/lilguy.png" width="32" height="32"></button>
+    <audio id="mwehehe" src="Assets/mwehehe.mp3"></audio>
+    <script>
+      function mwehehe(){
+        document.getElementById('mwehehe').play();
+      }
+    </script>
+    
 
     <div id="catwhimsy" class="catwhimsy bounce">
       <button onclick="catwhimsygone()"><img src="Assets/cat.jpeg"></button>
@@ -167,8 +241,12 @@
       }
     </script>
 
+    <p id="sq" style="white-space: nowrap;" class="sq text-3xl font-bold bouncenostop" >Click The Cubes :3</p>
+    <p id="cr" style="white-space: nowrap;" class="cr text-3xl font-bold bouncenostop" >Click The Cubes (or circle) :3</p>
+    <p id="guyt" style="white-space: nowrap;" class="guy text-3xl bouncenostop" >congrats u get a lil guy now :3</p>
 
-    <p class="text-3xl font-bold bouncenostop" >Click The Cubes!</p>
     
+    
+
   </body>
 </html>
