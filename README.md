@@ -12,10 +12,10 @@ I always tried to actually make the code myself. I tried to only go to AI when I
 
 ## Screenshots
 
-![ss1](Assets/ss1)
+![ss1](Assets/ss1.png)
 
-![ss2](Assets/ss2)
+![ss2](Assets/ss2.png)
 
-![ss1](Assets/ss3)
+![ss1](Assets/ss3.png)
 
-![ss2](Assets/ss4)
+![ss2](Assets/ss4.png)
