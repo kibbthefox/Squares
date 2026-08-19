@@ -75,6 +75,20 @@
     <img id="rainbowbg" src="Assets/rainbow.gif" class="rainbowbg flex items-center h-screen w-full" width="3000" height="3000">
     <img id="confetti" src="Assets/confetti.gif" class="confetti fixed inset-0 flex items-center h-screen w-full" width="3000 flex items-center h-screen w-full" width="3000">
    
+    
+        <div class="bounce">
+      <button onclick="pointclick()"><img src="Assets/8.png"></button>
+    </div>
+    <audio id="click" src="Assets/click.mp3"></audio>
+    <script>
+    var points = 0
+      function pointclick(){
+        document.getElementById('click').cloneNode(true).play();
+        points += 1
+        document.getElementById('pointtext').textContent = 'Points: ' + points;
+      }
+    </script>
+
 
     <div class="bounce">
       <button onclick="catwhimsyappear()"><img src="Assets/6.png"></button>
@@ -82,12 +96,10 @@
     <audio id="meow" src="Assets/meow.mp3"></audio>
     <script>
       function catwhimsyappear(){
-        if (document.getElementById('catwhimsy').style.visibility === 'visible') {
-          
-        } else{
-          document.getElementById('catwhimsy').style.visibility = 'visible';
-          document.getElementById('meow').play();
-        }
+        document.getElementById('catwhimsy').style.visibility = 'visible';
+        document.getElementById('catwhimsy2').style.visibility = 'visible';
+        document.getElementById('catwhimsy3').style.visibility = 'visible';
+        document.getElementById('meow').play();
       }
     </script>
 
@@ -264,13 +276,61 @@
     <div id="catwhimsy" class="catwhimsy bounce">
       <button onclick="catwhimsygone()"><img src="Assets/cat.jpeg"></button>
     </div>
+    <div id="catwhimsy2" class="catwhimsy bounce">
+      <button onclick="catwhimsygone2()"><img src="Assets/cat.jpeg"></button>
+    </div>
+    <div id="catwhimsy3" class="catwhimsy bounce">
+      <button onclick="catwhimsygone3()"><img src="Assets/cat.jpeg"></button>
+    </div>
     <script>
+      var cwg = 0
       function catwhimsygone(){
-        document.getElementById('catwhimsy').style.visibility = 'hidden';
+        cwg += 1
+        points += 2
+        document.getElementById('meow').cloneNode(true).play();
+        document.getElementById('pointtext').textContent = 'Points: ' + points;
+        if (cwg > 2) { 
+          document.getElementById('meow').cloneNode(true).play();
+          document.getElementById('catwhimsy').style.visibility = 'hidden';
+          points += 2
+          document.getElementById('pointtext').textContent = 'Points: ' + points;
+          cwg = 0
+        }
+      }
+    </script>
+    <script>
+      var cwg2 = 0
+      function catwhimsygone2(){
+        cwg2 += 1
+        points += 2
+        document.getElementById('meow').cloneNode(true).play();
+        document.getElementById('pointtext').textContent = 'Points: ' + points;
+        if (cwg2 > 2) { 
+          document.getElementById('meow').cloneNode(true).play();
+          document.getElementById('catwhimsy2').style.visibility = 'hidden';
+          points += 2
+          document.getElementById('pointtext').textContent = 'Points: ' + points;
+          cwg2 = 0
+        }
+      }
+    </script>
+    <script>
+    var cwg3 = 0
+      function catwhimsygone3(){
+        cwg3 += 1
+        points += 2
+        document.getElementById('meow').cloneNode(true).play();
+        document.getElementById('pointtext').textContent = 'Points: ' + points;
+        if (cwg3 > 2) { 
+          document.getElementById('catwhimsy3').style.visibility = 'hidden';
+          document.getElementById('pointtext').textContent = 'Points: ' + points;
+          cwg3 = 0
+        }
       }
     </script>
 
     <p id="sq" style="white-space: nowrap;" class="sq text-3xl font-bold bouncenostop" >Click The Cubes :3</p>
+    <p id="pointtext" style="white-space: nowrap;" class="sq text-3xl font-bold bouncenostop" >Points: 0</p>
     <p id="cr" style="white-space: nowrap;" class="cr text-3xl font-bold bouncenostop" >Click The Cubes (or circle) :3</p>
     <p id="guyt" style="white-space: nowrap;" class="guy text-3xl bouncenostop" >congrats u get a lil guy now :3</p>
   </body>
