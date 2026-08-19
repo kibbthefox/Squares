@@ -58,6 +58,9 @@
     .explode {
       visibility: hidden;
     }
+    .confetti {
+      visibility: hidden;
+    }
     body
     {
       font-family: 'Comic Relief', cursive;    
@@ -69,7 +72,9 @@
   </style>
 </head>
   <body id="body">
-
+    <img id="rainbowbg" src="Assets/rainbow.gif" class="rainbowbg flex items-center h-screen w-full" width="3000" height="3000">
+    <img id="confetti" src="Assets/confetti.gif" class="confetti fixed inset-0 flex items-center h-screen w-full" width="3000 flex items-center h-screen w-full" width="3000">
+   
 
     <div class="bounce">
       <button onclick="catwhimsyappear()"><img src="Assets/6.png"></button>
@@ -118,7 +123,8 @@
     <div id="explode" class="explode fixed inset-0 z-50 flex items-center h-screen w-full">
       <img src="Assets/explosion.gif" class="block mx-auto">
     </div>
-
+    <img id="flash" src="Assets/flash.png" class="flash fixed inset-0 z-50 flex items-center h-screen w-full" width="3000" height="3000"> 
+    
 
     <div class="bounce">
       <button onclick="hai()"><img src="Assets/4.png"></button>
@@ -137,6 +143,24 @@
       }
     </script>
 
+
+    <div class="bounce">
+      <button onclick="Confetti()"><img src="Assets/7.png"></button>
+    </div>
+    <script> 
+      function Confetti(){
+        if (document.getElementById('confetti').style.visibility == 'visible') {
+          document.getElementById('confetti').style.visibility = 'hidden';
+          document.getElementById('secretsquare').style.visibility = 'hidden';
+        } else{
+          document.getElementById('confetti').style.visibility = 'visible';
+          document.getElementById('secretsquare').style.visibility = 'hidden';
+          document.getElementById('rainbowbg').style.visibility = 'hidden'
+          }
+        }
+    </script>
+    
+    
 
     <div class="bounce grid place-items-center">
       <button id="gsquare" class="gsquare col-start-1 row-start-1" onclick="CircleMode()"><img src="Assets/3.png"></button>
@@ -179,8 +203,7 @@
         }
       }
     </script>
-    <img id="rainbowbg" src="Assets/rainbow.gif" class="rainbowbg flex items-center h-screen w-full" width="3000" height="3000">
-   
+    
 
     <div class="bounce">
       <button id="orange" onclick="rotateorange()"><img src="Assets/1.png"></button>
@@ -192,7 +215,7 @@
         document.getElementById('orange').style.rotate = ''+currentrotate+'deg';
       }
     </script>
-    <img id="flash" src="Assets/flash.png" class="flash fixed inset-0 z-50 flex items-center h-screen w-full" width="3000" height="3000"> 
+    
 
     <div class="bounce">
       <button onclick="bgrainbow()"><img src="Assets/0.png"></button>
@@ -204,6 +227,7 @@
           document.getElementById('secretsquare').style.visibility = 'hidden';
         } else{
           document.getElementById('rainbowbg').style.visibility = 'visible';
+          document.getElementById('confetti').style.visibility = 'hidden';
           if (document.getElementById('body').style.filter === 'grayscale(100%)') {
             document.getElementById('secretsquare').style.visibility = 'visible';
           } else{
