@@ -61,6 +61,17 @@
     .confetti {
       visibility: hidden;
     }
+    .dvd {
+      visibility: hidden;
+    }
+    .bluescreen {
+      visibility: hidden;
+      cursor: default;
+    }
+    .blackscreen {
+      visibility: hidden;
+      cursor: default;
+    }
     body
     {
       font-family: 'Comic Relief', cursive;    
@@ -74,7 +85,6 @@
   <body id="body">
     <img id="rainbowbg" src="Assets/rainbow.gif" class="rainbowbg flex items-center h-screen w-full" width="3000" height="3000">
     <img id="confetti" src="Assets/confetti.gif" class="confetti fixed inset-0 flex items-center h-screen w-full" width="3000 flex items-center h-screen w-full" width="3000">
-   
     
         <div class="bounce">
       <button onclick="pointclick()"><img src="Assets/8.png"></button>
@@ -144,6 +154,7 @@
     <audio id="hai" src="Assets/hi.mp3"></audio>
     <script>
       function hai(){
+        document.getElementById('hai').currentTime = 0;
         document.getElementById('hai').play();
         document.getElementById('haitext').animate([       //This animate portion is ai cuz i was so clueless
           { opacity: 1 }, 
@@ -159,12 +170,14 @@
     <div class="bounce">
       <button onclick="Confetti()"><img src="Assets/7.png"></button>
     </div>
+    <audio id="yay" src="Assets/crowd.mp3"></audio>
     <script> 
       function Confetti(){
         if (document.getElementById('confetti').style.visibility == 'visible') {
           document.getElementById('confetti').style.visibility = 'hidden';
           document.getElementById('secretsquare').style.visibility = 'hidden';
         } else{
+          document.getElementById('yay').play();
           document.getElementById('confetti').style.visibility = 'visible';
           document.getElementById('secretsquare').style.visibility = 'hidden';
           document.getElementById('rainbowbg').style.visibility = 'hidden'
@@ -172,6 +185,22 @@
         }
     </script>
     
+    <div class="bounce">
+      <button id="seafoam" onclick="Bluescreen()"><img src="Assets/10.png"></button>
+    </div>
+    <button class="bluescreen fixed inset-0 z-50 flex items-center h-screen w-full" id="bluescreen" onclick=""><img src="Assets/bluescreen.png"></button>
+    <button class="blackscreen fixed inset-0 z-50 flex items-center h-screen w-full" id="blackscreen" onclick=""><img src="Assets/black.png" width="3000" height="3000"></button>
+    <script> 
+      async function Bluescreen(){
+        document.getElementById('blackscreen').style.visibility = 'visible';
+        document.getElementById('body').style.filter = 'grayscale(0%)';
+        await new Promise(resolve => setTimeout(resolve, 1500)); //This single line was written by ai
+        document.getElementById('blackscreen').style.visibility = 'hidden';
+        document.getElementById('bluescreen').style.visibility = 'visible';
+        await new Promise(resolve => setTimeout(resolve, 5000)); //This single line was written by ai
+        document.getElementById('bluescreen').style.visibility = 'hidden';
+      }
+    </script>
     
 
     <div class="bounce grid place-items-center">
@@ -229,6 +258,24 @@
         document.getElementById('orange').style.rotate = ''+currentrotate+'deg';
       }
     </script>
+
+
+    <div class="bounce grid place-items-center">
+      <button id="dvdsq" class="col-start-1 row-start-1" onclick="dvdmode()"><img src="Assets/9.png"></button>
+      <button id="dvd" class="dvd col-start-1 row-start-1" onclick="dvdsqmode()"><img src="Assets/dvd.png" width="256"></button>
+    </div>
+    <script>
+      function dvdmode(){
+        document.getElementById('dvdsq').style.visibility = 'hidden';
+        document.getElementById('dvd').style.visibility = 'visible';
+      }
+    </script>
+    <script>
+      function dvdsqmode(){
+        document.getElementById('dvd').style.visibility = 'hidden';
+        document.getElementById('dvdsq').style.visibility = 'visible';
+      }
+    </script>
     
 
     <div class="bounce">
@@ -250,7 +297,7 @@
         }
       }
     </script>
-    
+
 
     <div class="bouncenostop">
       <button id="secretsquare" class="secretsquare" onclick="rainbowsquare()"><img src="Assets/rainbow.gif" width="128px"></button>
@@ -270,7 +317,10 @@
     <audio id="mwehehe" src="Assets/mwehehe.mp3"></audio>
     <script>
       function mwehehe(){
+        document.getElementById('mwehehe').currentTime = 0;
         document.getElementById('mwehehe').play();
+        points += 6
+        document.getElementById('pointtext').textContent = 'Points: ' + points;
       }
     </script>
     
@@ -289,10 +339,10 @@
       function catwhimsygone(){
         cwg += 1
         points += 2
-        document.getElementById('meow').cloneNode(true).play();
+        document.getElementById('meow').currentTime = 0;
+        document.getElementById('meow').play();    //cloneNode(true)
         document.getElementById('pointtext').textContent = 'Points: ' + points;
         if (cwg > 2) { 
-          document.getElementById('meow').cloneNode(true).play();
           document.getElementById('catwhimsy').style.visibility = 'hidden';
           points += 2
           document.getElementById('pointtext').textContent = 'Points: ' + points;
@@ -305,10 +355,10 @@
       function catwhimsygone2(){
         cwg2 += 1
         points += 2
-        document.getElementById('meow').cloneNode(true).play();
+        document.getElementById('meow').currentTime = 0;
+        document.getElementById('meow').play();    //cloneNode(true)
         document.getElementById('pointtext').textContent = 'Points: ' + points;
         if (cwg2 > 2) { 
-          document.getElementById('meow').cloneNode(true).play();
           document.getElementById('catwhimsy2').style.visibility = 'hidden';
           points += 2
           document.getElementById('pointtext').textContent = 'Points: ' + points;
@@ -321,7 +371,8 @@
       function catwhimsygone3(){
         cwg3 += 1
         points += 2
-        document.getElementById('meow').cloneNode(true).play();
+        document.getElementById('meow').currentTime = 0;
+        document.getElementById('meow').play();    //cloneNode(true)
         document.getElementById('pointtext').textContent = 'Points: ' + points;
         if (cwg3 > 2) { 
           document.getElementById('catwhimsy3').style.visibility = 'hidden';
